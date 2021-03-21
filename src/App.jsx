@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-
 import "./App.css";
+import { asteriskRepeat } from "./utils/stringUtils";
 
 const App = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [changeBackgroundColor, setChangeBackgroundColor] = useState(true);
+  const [isMainBackGroundColor, setIsMainBackGroundColor] = useState(true);
 
   return (
     <div
-      style={{ backgroundColor: changeBackgroundColor ? "white" : "darkgray" }}
+      style={{ backgroundColor: isMainBackGroundColor ? "white" : "darkgray" }}
     >
       <div className="App">
         <input
@@ -35,12 +35,12 @@ const App = () => {
         </button>
         <button
           type="button"
-          onClick={() => setChangeBackgroundColor(!changeBackgroundColor)}
+          onClick={() => setIsMainBackGroundColor(!isMainBackGroundColor)}
         >
           Change background color
         </button>
         <p>{username}</p>
-        <p>{showPassword ? password : "*".repeat(password.length)}</p>
+        <p>{showPassword ? password : asteriskRepeat(password.length)}</p>
       </div>
     </div>
   );
